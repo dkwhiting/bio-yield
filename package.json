@@ -1,16 +1,24 @@
 {
   "dependencies": {
-    "discord.js": "^14.11.0"
+    "@discordjs/builders": "^1.14.1",
+    "discord.js": "^14.26.2",
+    "dotenv": "^17.4.1"
   },
   "name": "discord-bot-template",
   "description": "",
   "version": "1.0.0",
-  "main": "index.js",
-  "devDependencies": {},
+  "type": "module",
+  "main": "src/index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node deploy-commands.js && node index.js",
+    "build": "tsc",
+    "start": "npm run build && node dist/deploy-commands.js && node dist/index.js",
+    "dev": "tsx src/deploy-commands.ts && tsx src/index.ts",
+    "typecheck": "tsc --noEmit"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.2"
+  }
 }
