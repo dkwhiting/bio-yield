@@ -16,10 +16,13 @@ import {
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
+import { drizzle } from 'drizzle-orm/node-postgres';
 
 if (!process.env.TOKEN) {
   throw new Error('Missing TOKEN in environment variables.')
 }
+
+const db = drizzle(process.env.DATABASE_URL!);
 
 type CommandData =
   | SlashCommandBuilder
